@@ -1,0 +1,75 @@
+Installing Git
+
+https://git-scm.com/book/pt-br/v1/Primeiros-passos-Instalando-Git
+
+
+Creating a new repository
+create a new folder, open it, and run the command
+    git init 
+
+
+Get a repository
+    git clone /path/to/repository
+When I use a remote server, your command will be:
+    git clone user@server:/path/to/repository
+
+Add and confirm
+You can propose changes (add them to the Index) using
+    git add <file>
+    git add * 
+
+This is the first step in the basic git workflow. To actually commit these changes (that is, commit), use:
+    git commit -m "comments of changes"
+    Now the file is sent to the HEAD, but not yet to the remote repository.
+
+
+Sending changes
+Your changes are now in the HEAD of your local working copy. To send these changes to your remote repository, run:
+    git push origin master 
+    Change master to any desired branch by sending your changes to it.
+
+
+If you have not cloned an existing repository and want to connect your repository to a remote server, you must add it with:
+    git remote add origin <server>
+    You are now able to submit your changes to the selected remote server.
+
+
+Ramifying
+Branches are used to develop features isolated from one another. The master branch is the "default" branch when you create a repository. Use other branches to develop and merge them to the master branch upon completion.
+
+create a new branch called "function_x" and select it using:
+    git checkout -b function_x
+
+Return to the master using:
+    git checkout master
+
+Remove the branch using:
+    git branch -d function_x
+
+
+A branch is not available to others unless you send the branch to your remote repository, using:
+    git push origin <function_x>
+
+Refresh & merge
+To update your local repository with the newest version, run
+    git pull
+
+In your workbook to get and merge remote changes.
+to merge another branch to its active branch (eg master), use
+    git merge <branch>
+
+In both cases git tries to merge the changes automatically. Unfortunately, this is not always possible and results in conflict. You are responsible for making the merge these conflicts manually by editing the files displayed by git. After changing, you need to mark them as merged with
+    git add <file>
+
+Before you merge the changes, you can also preview them using
+    git diff <source branch> <branch destination>
+
+
+Override local changes
+In case you have done something wrong you can override the local changes using the command
+    git checkout -- <file>
+
+This replaces the changes in your work tree with the latest content in HEAD. Changes already added to the index as well as new files will be retained.
+If you want to remove all local changes and commits instead, retrieve the most recent server history and point to your local branch master in this way
+    git fetch origin
+    git reset --hard origin / master
