@@ -1,0 +1,17 @@
+It is a hidden directory within your user folder. By the terminal, you can access via:
+
+cd ~/.ssh
+
+Within this directory, run the `ls -la` command.
+
+You should see at least two files: `id_rsa` and id_rsa.pub`. The file may have a name other than `id_rsa`, but must contain 2 with the same name, but one with the` .pub` extension.
+
+This is the one you need to add to your GitHub. How to make?
+
+If the file with `.pub` extension calls` same_rsa.pub` itself, you can execute:
+
+cat id_rsa.pub
+
+That will be shown the contents of the file. Now just go into your Github settings and paste that key there!
+
+Just remember it has to be `.pub`, okay? The other is your private key, and you should not share with ANYONE! : D
